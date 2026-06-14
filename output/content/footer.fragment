@@ -1,0 +1,53 @@
+<footer class="bg-gray-800 text-gray-300">
+  <div class="container mx-auto px-6 py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Connaught Place</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.connaught-place.com/" class="hover:text-white hover:underline transition-colors duration-200">Home</a></li>
+          <li><a href="https://www.connaught-place.com/photos-blog/" class="hover:text-white hover:underline transition-colors duration-200">Photos and Blog</a></li>
+          <li><a href="https://www.connaught-place.com/red-fort/" class="hover:text-white hover:underline transition-colors duration-200">Red Fort</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Delhi Tour</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.connaught-place.com/delhi/" class="hover:text-white hover:underline transition-colors duration-200">Old Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/red-fort/" class="hover:text-white hover:underline transition-colors duration-200">Red Fort Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/kinari-bazaar/" class="hover:text-white hover:underline transition-colors duration-200">Kinari Bazaar</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.connaught-place.com/delhi/" class="hover:text-white hover:underline transition-colors duration-200">Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/New-Delhi/" class="hover:text-white hover:underline transition-colors duration-200">New Delhi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+        <ul class="space-y-2">
+          <li><a href="https://www.connaught-place.com/Diwali-market-in-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali Market In Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/privacypolicy.html" class="hover:text-white hover:underline transition-colors duration-200">Privacypolicy</a></li>
+          <li><a href="https://www.connaught-place.com/Ravan-effigy-burn-in-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Ravan Effigy Burn In Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-sm text-gray-400">
+      <p class="text-sm text-gray-400">Connaught Place and New Delhi</p>
+    </div>
+
+    <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+      <p class="text-sm text-gray-400">&copy; 2026 Connaught Place. All rights reserved.</p>
+      
+    </div>
+
+  </div>
+</footer>
