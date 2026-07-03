@@ -10,7 +10,14 @@
     "Kinari Bazaar": "https://www.connaught-place.com/kinari-bazaar/"
   },
   "Folders": {},
-  "Pages": {},
+  "Pages": {
+    "Image Detail": "https://www.connaught-place.com/photo-gallery/image-detail.html",
+    "India Villages": "https://www.connaught-place.com/photo-gallery/india-villages.html",
+    "Photo Detail": "https://www.connaught-place.com/photo-gallery/photo-detail.html",
+    "Sundarbans Wildlife Gallery": "https://www.connaught-place.com/photo-gallery/sundarbans-wildlife-gallery.html",
+    "Vaishnodevi Gallery": "https://www.connaught-place.com/photo-gallery/vaishnodevi-gallery.html",
+    "Vaishnodevi Photo Gallery": "https://www.connaught-place.com/photo-gallery/vaishnodevi-photo-gallery.html"
+  },
   "facebook": "https://www.facebook.com/kreatewebsites/",
   "twitter": "https://www.twitter.com/kreatewebsites/",
   "linkedin": "https://www.linkedin.com/company/kreatewebsites/"

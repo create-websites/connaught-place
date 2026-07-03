@@ -24,8 +24,12 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
         <ul class="space-y-2">
+          <li><a href="https://www.connaught-place.com/chandni-chowk/" class="hover:text-white hover:underline transition-colors duration-200">Chandni Chowk</a></li>
           <li><a href="https://www.connaught-place.com/delhi/" class="hover:text-white hover:underline transition-colors duration-200">Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/india/" class="hover:text-white hover:underline transition-colors duration-200">India</a></li>
           <li><a href="https://www.connaught-place.com/New-Delhi/" class="hover:text-white hover:underline transition-colors duration-200">New Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/photo-gallery/" class="hover:text-white hover:underline transition-colors duration-200">Photo Gallery</a></li>
+          <li><a href="https://www.connaught-place.com/red-fort/" class="hover:text-white hover:underline transition-colors duration-200">Red Fort</a></li>
         </ul>
       </div>
 
@@ -41,11 +45,11 @@
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Connaught Place and New Delhi</p>
+      <p class="text-sm text-gray-400">Connaught Place Shopping and Restaurants</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">&copy; 2026 Connaught Place. All rights reserved.</p>
+      <p class="text-sm text-gray-400">&copy; 2026 Connaught Place Delhi. All rights reserved.</p>
       
     </div>
 
