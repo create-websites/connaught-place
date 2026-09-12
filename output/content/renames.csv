@@ -1,19 +1,61 @@
 original_path,output_path,articleurl,status,footer_used
-connaught-place-delhi-comprehensive.html,index.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\footer.fragment
-chandni-chowk\chandni-chowk-comprehensive.html,chandni-chowk\index.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\chandni-chowk\footer.fragment
-delhi\old-delhi-info.html,delhi\old-delhi-information.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\delhi\footer.fragment
-delhi\old-delhi.html,delhi\old-delhi-india.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\delhi\footer.fragment
-delhi\qutubminar-images.html,delhi\qutubminar-images.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\delhi\footer.fragment
-delhi\qutubminar-photos-blog.html,delhi\qutubminar-photos-and-guide.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\delhi\footer.fragment
-india\india-detailed-webpage.html,india\index.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\india\footer.fragment
-india\qutub_minar_controversy.html,india\who-built-qutubminar-issue.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\india\footer.fragment
-india\taj-mahal-controversy.html,india\who-built-tajmahal-issue.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\india\footer.fragment
-kinari-bazaar\kinari-bazaar-detailed.html,kinari-bazaar\india.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\kinari-bazaar\footer.fragment
-photo-gallery\image-detail.html,photo-gallery\image-detail.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\photo-gallery\footer.fragment
-photo-gallery\india-villages.html,photo-gallery\india-villages.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\photo-gallery\footer.fragment
-photo-gallery\photo-detail.html,photo-gallery\photo-detail.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\photo-gallery\footer.fragment
-photo-gallery\sundarbans-wildlife-gallery.html,photo-gallery\sundarbans-wildlife-gallery.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\photo-gallery\footer.fragment
-photo-gallery\taj-mahal.html,photo-gallery\index.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\photo-gallery\footer.fragment
-photo-gallery\vaishnodevi-gallery.html,photo-gallery\vaishnodevi-gallery.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\photo-gallery\footer.fragment
-photo-gallery\vaishnodevi-photo-gallery.html,photo-gallery\vaishnodevi-photo-gallery.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\photo-gallery\footer.fragment
-red-fort\red-fort-detailed.html,red-fort\index.html,yes,merged,c:\e\a3_output\connaught-place.com\output\content\red-fort\footer.fragment
+Home.htm,overview.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Metro.htm,metro.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Metropolitan Hotel.htm,metropolitan-hotel.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+"Hotel Hans Plaza, New Delhi.htm",hotel-hans-plaza-new-delhi.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+The Lalit Delhi.htm,the-lalit-delhi.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Park Hotel.htm,park-hotel.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Safdarjung Tomb.htm,safdarjung-tomb.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Shopping.htm,shopping.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+connaught-place-delhi-comprehensive.html,index.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Rajghat.htm,rajghat.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -E.htm,block-e.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -D.htm,block-d.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Old Fort.htm,old-fort.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Ramada Plaza.htm,ramada-plaza.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Restaurants.htm,restaurants.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -F.htm,block-f.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -G.htm,block-g.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -P.htm,block-p.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+The Oberoi.htm,the-oberoi.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -C.htm,block-c.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -B.htm,block-b.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -L.htm,block-l.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Humayun's Tomb.htm,humayun-s-tomb.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -M.htm,block-m.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Default.htm,cp.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Isa Khan's Tomb.htm,isa-khan-s-tomb.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -N.htm,block-n.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+ShowRooms.htm,showrooms.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+"Hotel Palace Heights, Connaught Place, New Delhi.htm",hotel-palace-heights-connaught-place-new-delhi.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Le_Meridien.htm,le_meridien.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK-A.htm,block-a.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -K.htm,block-k.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+BLOCK -H.htm,block-h.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+India Gate.htm,india-gate.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+"Shangri-La Hotel, New Delhi.htm",shangri-la-hotel-new-delhi.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+RedFort.htm,redfort.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+The Imperial.htm,the-imperial.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Hotels.htm,hotels.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Old Delhi.htm,old-delhi.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Hot Spots.htm,hot-spots.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Rashtrapati Bhawan.htm,rashtrapati-bhawan.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+Jantar Mantar.htm,jantar-mantar.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+"Hotel Comfort Inn The President, New Delhi.htm",hotel-comfort-inn-the-president-new-delhi.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
+red-fort/red-fort-detailed.html,red-fort/index.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/red-fort/footer.fragment
+delhi/old-delhi-info.html,delhi/old-delhi-information.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/delhi/footer.fragment
+delhi/old-delhi.html,delhi/old-delhi-india.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/delhi/footer.fragment
+delhi/qutubminar-photos-blog.html,delhi/qutubminar-photos-and-guide.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/delhi/footer.fragment
+delhi/qutubminar-images.html,delhi/qutubminar-images.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/delhi/footer.fragment
+photo-gallery/vaishnodevi-photo-gallery.html,photo-gallery/vaishnodevi-photo-gallery.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
+photo-gallery/taj-mahal.html,photo-gallery/index.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
+photo-gallery/image-detail.html,photo-gallery/image-detail.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
+photo-gallery/vaishnodevi-gallery.html,photo-gallery/vaishnodevi-gallery.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
+photo-gallery/india-villages.html,photo-gallery/india-villages.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
+photo-gallery/sundarbans-wildlife-gallery.html,photo-gallery/sundarbans-wildlife-gallery.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
+photo-gallery/photo-detail.html,photo-gallery/photo-detail.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
+chandni-chowk/chandni-chowk-comprehensive.html,chandni-chowk/index.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/chandni-chowk/footer.fragment
+india/india-detailed-webpage.html,india/index.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/india/footer.fragment
+india/qutub_minar_controversy.html,india/who-built-qutubminar-issue.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/india/footer.fragment
+india/taj-mahal-controversy.html,india/who-built-tajmahal-issue.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/india/footer.fragment
+kinari-bazaar/kinari-bazaar-detailed.html,kinari-bazaar/india.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/kinari-bazaar/footer.fragment

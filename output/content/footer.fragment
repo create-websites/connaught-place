@@ -36,20 +36,62 @@
       <div>
         <h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
         <ul class="space-y-2">
+          <li><a href="https://www.connaught-place.com/block-a.html" class="hover:text-white hover:underline transition-colors duration-200">Block A</a></li>
+          <li><a href="https://www.connaught-place.com/block-b.html" class="hover:text-white hover:underline transition-colors duration-200">Block B</a></li>
+          <li><a href="https://www.connaught-place.com/block-c.html" class="hover:text-white hover:underline transition-colors duration-200">Block C</a></li>
+          <li><a href="https://www.connaught-place.com/block-d.html" class="hover:text-white hover:underline transition-colors duration-200">Block D</a></li>
+          <li><a href="https://www.connaught-place.com/block-e.html" class="hover:text-white hover:underline transition-colors duration-200">Block E</a></li>
+          <li><a href="https://www.connaught-place.com/block-f.html" class="hover:text-white hover:underline transition-colors duration-200">Block F</a></li>
+          <li><a href="https://www.connaught-place.com/block-g.html" class="hover:text-white hover:underline transition-colors duration-200">Block G</a></li>
+          <li><a href="https://www.connaught-place.com/block-h.html" class="hover:text-white hover:underline transition-colors duration-200">Block H</a></li>
+          <li><a href="https://www.connaught-place.com/block-k.html" class="hover:text-white hover:underline transition-colors duration-200">Block K</a></li>
+          <li><a href="https://www.connaught-place.com/block-l.html" class="hover:text-white hover:underline transition-colors duration-200">Block L</a></li>
+          <li><a href="https://www.connaught-place.com/block-m.html" class="hover:text-white hover:underline transition-colors duration-200">Block M</a></li>
+          <li><a href="https://www.connaught-place.com/block-n.html" class="hover:text-white hover:underline transition-colors duration-200">Block N</a></li>
+          <li><a href="https://www.connaught-place.com/block-p.html" class="hover:text-white hover:underline transition-colors duration-200">Block P</a></li>
+          <li><a href="https://www.connaught-place.com/cp.html" class="hover:text-white hover:underline transition-colors duration-200">Cp</a></li>
           <li><a href="https://www.connaught-place.com/Diwali-market-in-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali Market In Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/hot-spots.html" class="hover:text-white hover:underline transition-colors duration-200">Hot Spots</a></li>
+          <li><a href="https://www.connaught-place.com/hotel-comfort-inn-the-president-new-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Hotel Comfort Inn The President New Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/hotel-hans-plaza-new-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Hotel Hans Plaza New Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/hotel-palace-heights-connaught-place-new-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Hotel Palace Heights Connaught Place New Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/hotels.html" class="hover:text-white hover:underline transition-colors duration-200">Hotels</a></li>
+          <li><a href="https://www.connaught-place.com/humayun-s-tomb.html" class="hover:text-white hover:underline transition-colors duration-200">Humayun S Tomb</a></li>
+          <li><a href="https://www.connaught-place.com/india-gate.html" class="hover:text-white hover:underline transition-colors duration-200">India Gate</a></li>
+          <li><a href="https://www.connaught-place.com/isa-khan-s-tomb.html" class="hover:text-white hover:underline transition-colors duration-200">Isa Khan S Tomb</a></li>
+          <li><a href="https://www.connaught-place.com/jantar-mantar.html" class="hover:text-white hover:underline transition-colors duration-200">Jantar Mantar</a></li>
+          <li><a href="https://www.connaught-place.com/le_meridien.html" class="hover:text-white hover:underline transition-colors duration-200">Le Meridien</a></li>
+          <li><a href="https://www.connaught-place.com/metro.html" class="hover:text-white hover:underline transition-colors duration-200">Metro</a></li>
+          <li><a href="https://www.connaught-place.com/metropolitan-hotel.html" class="hover:text-white hover:underline transition-colors duration-200">Metropolitan Hotel</a></li>
+          <li><a href="https://www.connaught-place.com/old-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Old Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/old-fort.html" class="hover:text-white hover:underline transition-colors duration-200">Old Fort</a></li>
+          <li><a href="https://www.connaught-place.com/overview.html" class="hover:text-white hover:underline transition-colors duration-200">Overview</a></li>
+          <li><a href="https://www.connaught-place.com/park-hotel.html" class="hover:text-white hover:underline transition-colors duration-200">Park Hotel</a></li>
           <li><a href="https://www.connaught-place.com/privacypolicy.html" class="hover:text-white hover:underline transition-colors duration-200">Privacypolicy</a></li>
+          <li><a href="https://www.connaught-place.com/rajghat.html" class="hover:text-white hover:underline transition-colors duration-200">Rajghat</a></li>
+          <li><a href="https://www.connaught-place.com/ramada-plaza.html" class="hover:text-white hover:underline transition-colors duration-200">Ramada Plaza</a></li>
+          <li><a href="https://www.connaught-place.com/rashtrapati-bhawan.html" class="hover:text-white hover:underline transition-colors duration-200">Rashtrapati Bhawan</a></li>
           <li><a href="https://www.connaught-place.com/Ravan-effigy-burn-in-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Ravan Effigy Burn In Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/redfort.html" class="hover:text-white hover:underline transition-colors duration-200">Redfort</a></li>
+          <li><a href="https://www.connaught-place.com/restaurants.html" class="hover:text-white hover:underline transition-colors duration-200">Restaurants</a></li>
+          <li><a href="https://www.connaught-place.com/safdarjung-tomb.html" class="hover:text-white hover:underline transition-colors duration-200">Safdarjung Tomb</a></li>
+          <li><a href="https://www.connaught-place.com/shangri-la-hotel-new-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Shangri La Hotel New Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/shopping.html" class="hover:text-white hover:underline transition-colors duration-200">Shopping</a></li>
+          <li><a href="https://www.connaught-place.com/showrooms.html" class="hover:text-white hover:underline transition-colors duration-200">Showrooms</a></li>
           <li><a href="https://www.connaught-place.com/sitemap.html" class="hover:text-white hover:underline transition-colors duration-200">Sitemap</a></li>
+          <li><a href="https://www.connaught-place.com/the-imperial.html" class="hover:text-white hover:underline transition-colors duration-200">The Imperial</a></li>
+          <li><a href="https://www.connaught-place.com/the-lalit-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">The Lalit Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/the-oberoi.html" class="hover:text-white hover:underline transition-colors duration-200">The Oberoi</a></li>
         </ul>
       </div>
     </div>
 
     <div class="mt-8 text-center text-sm text-gray-400">
-      <p class="text-sm text-gray-400">Connaught Place Shopping and Restaurants</p>
+      <p class="text-sm text-gray-400">Delhi Blog - Where to stay, Where to eat</p>
     </div>
 
     <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
-      <p class="text-sm text-gray-400">&copy; 2026 Connaught Place Delhi. All rights reserved.</p>
+      <p class="text-sm text-gray-400">&copy; 2026 Sep 2026: Connaught Place Website. All rights reserved.</p>
       
     </div>
 
