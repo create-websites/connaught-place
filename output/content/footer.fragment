@@ -26,6 +26,7 @@
         <ul class="space-y-2">
           <li><a href="https://www.connaught-place.com/chandni-chowk/" class="hover:text-white hover:underline transition-colors duration-200">Chandni Chowk</a></li>
           <li><a href="https://www.connaught-place.com/delhi/" class="hover:text-white hover:underline transition-colors duration-200">Delhi</a></li>
+          <li><a href="https://www.connaught-place.com/festivals/" class="hover:text-white hover:underline transition-colors duration-200">Festivals</a></li>
           <li><a href="https://www.connaught-place.com/india/" class="hover:text-white hover:underline transition-colors duration-200">India</a></li>
           <li><a href="https://www.connaught-place.com/New-Delhi/" class="hover:text-white hover:underline transition-colors duration-200">New Delhi</a></li>
           <li><a href="https://www.connaught-place.com/photo-gallery/" class="hover:text-white hover:underline transition-colors duration-200">Photo Gallery</a></li>
@@ -49,6 +50,7 @@
           <li><a href="https://www.connaught-place.com/block-m.html" class="hover:text-white hover:underline transition-colors duration-200">Block M</a></li>
           <li><a href="https://www.connaught-place.com/block-n.html" class="hover:text-white hover:underline transition-colors duration-200">Block N</a></li>
           <li><a href="https://www.connaught-place.com/block-p.html" class="hover:text-white hover:underline transition-colors duration-200">Block P</a></li>
+          <li><a href="https://www.connaught-place.com/cp-explorer.html" class="hover:text-white hover:underline transition-colors duration-200">Cp Explorer</a></li>
           <li><a href="https://www.connaught-place.com/cp.html" class="hover:text-white hover:underline transition-colors duration-200">Cp</a></li>
           <li><a href="https://www.connaught-place.com/Diwali-market-in-delhi.html" class="hover:text-white hover:underline transition-colors duration-200">Diwali Market In Delhi</a></li>
           <li><a href="https://www.connaught-place.com/hot-spots.html" class="hover:text-white hover:underline transition-colors duration-200">Hot Spots</a></li>

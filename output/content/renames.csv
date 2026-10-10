@@ -1,4 +1,5 @@
 original_path,output_path,articleurl,status,footer_used
+cp-explorer.html,cp-explorer.html,no,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
 Home.htm,overview.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
 Metro.htm,metro.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
 Metropolitan Hotel.htm,metropolitan-hotel.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/footer.fragment
@@ -54,6 +55,8 @@ photo-gallery/vaishnodevi-gallery.html,photo-gallery/vaishnodevi-gallery.html,ye
 photo-gallery/india-villages.html,photo-gallery/india-villages.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
 photo-gallery/sundarbans-wildlife-gallery.html,photo-gallery/sundarbans-wildlife-gallery.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
 photo-gallery/photo-detail.html,photo-gallery/photo-detail.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/photo-gallery/footer.fragment
+news/index.html,news/index.html,no,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/news/footer.fragment
+news/2026-10-10-connaught-place-chandni-chowk-delhi-news.html,news/2026-10-10-connaught-place-chandni-chowk-delhi-news.html,no,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/news/footer.fragment
 chandni-chowk/chandni-chowk-comprehensive.html,chandni-chowk/index.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/chandni-chowk/footer.fragment
 india/india-detailed-webpage.html,india/index.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/india/footer.fragment
 india/qutub_minar_controversy.html,india/who-built-qutubminar-issue.html,yes,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/india/footer.fragment
@@ -87,3 +90,4 @@ festivals/wengers-christmas-legend-the-heritage-bakerys-famous-plum-cakes-stolle
 festivals/new-years-eve-nightlife-navigating-the-best-lounges-pubs-and-rooftop-parties-in-the-inner-circle.html,festivals/new-years-eve-nightlife-navigating-the-best-lounges-pubs-and-rooftop-parties-in-the-inner-circle.html,no,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/festivals/footer.fragment
 festivals/garba-dandiya-nights-festive-dance-events-and-cultural-performances-hosted-near-cp.html,festivals/garba-dandiya-nights-festive-dance-events-and-cultural-performances-hosted-near-cp.html,no,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/festivals/footer.fragment
 festivals/post-holi-chill-unwinding-at-heritage-cafes-and-coffee-houses-after-the-color-fests.html,festivals/post-holi-chill-unwinding-at-heritage-cafes-and-coffee-houses-after-the-color-fests.html,no,merged,/Users/prashantdhingra/e/a3_output/connaught-place.com/output/content/festivals/footer.fragment
+festivals/dussehra-info/dussehra_central_delhi_guide.html,festivals/dussehra-info/index.html,yes,merged,/Users/prashantdhingra/e/a3_input/connaught-place.com/input/footer_black.htm

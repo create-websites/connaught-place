@@ -1,0 +1,640 @@
+<!-- Chosen Palette: Warm Heritage. Background: Cream (#FDFBF7), Secondary: Warm Beige (#E8E4D9), Text: Charcoal (#2D3748), Accent: Terracotta/Brick Red (#C05640) - representing the colonial brick architecture and warmth of Delhi. --><!-- Application Structure Plan: 
+    1. Hero Section: Emotional hook and visual introduction to the "Circular Heart".
+    2. The Time Capsule (History): A vertical timeline interaction to scroll through the evolution from 1929 to present.
+    3. The Radial Blueprint (Architecture): Uses a Plotly Sunburst chart to visualize the literal concentric structure (Inner/Middle/Outer circles) and block logic, making the confusing layout intuitive.
+    4. The Curator's Guide (Eat, Shop, Do): The core interactive utility. A tabbed and filtered grid system allowing users to toggle between "Heritage" classics (Wenger's, United Coffee House) and "Modern" vibes, satisfying the "Where to..." requirements.
+    5. CP Pulse (Data Analytics): Quantitative breakdown of the area using Chart.js to show Commercial Mix, Price Range distributions, and Peak Footfall times.
+    6. Essentials (Travel): Functional info on Metro and navigation.
+    Why this structure? CP is complex. Users first need to understand *what* it is (History), then *how* to navigate it (Architecture), and finally *what to do* there (Guide).
+--><!-- Visualization & Content Choices:
+    1. History -> Goal: Change/Chronology -> Method: Vertical Timeline (HTML/Tailwind) -> Interaction: Scroll-triggered highlighting (simulated via hover effects for simplicity). Justification: Best for linear storytelling.
+    2. Architecture Layout -> Goal: Relationships/Hierarchy -> Method: Plotly Sunburst Chart -> Interaction: Click to expand specific Circles/Blocks. Justification: CP is literally a circle; a Sunburst chart perfectly mimics the map layout without using SVG maps.
+    3. Commercial Mix -> Goal: Inform/Proportion -> Method: Chart.js Doughnut -> Interaction: Hover for stats. Justification: Quickly shows the balance of Retail vs. Food vs. Offices.
+    4. Dining Price Analysis -> Goal: Compare -> Method: Chart.js Bar Chart -> Interaction: Toggle data series. Justification: Helps users budget their visit.
+    5. Place Guide -> Goal: Organize/Filter -> Method: Interactive Grid -> Interaction: Javascript filtering by category/tag. Justification: Users have specific intents (e.g., "I want vintage food").
+    
+    CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. All visuals via Canvas or CSS/Unicode.
+--><!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Connaught Place: The Heart of Delhi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <style>
+        /* Custom Utilities */
+        body {
+            background-color: #FDFBF7;
+            color: #2D3748;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .accent-text { color: #C05640; }
+        .accent-bg { background-color: #C05640; }
+        .accent-border { border-color: #C05640; }
+        
+        .soft-bg { background-color: #E8E4D9; }
+        
+        /* Chart Container Strict Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Card Hover Effects */
+        .place-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tab Active State */
+        .tab-btn.active {
+            background-color: #C05640;
+            color: white;
+            border-color: #C05640;
+        }
+    </style>
+<link href="https://storage.googleapis.com/css-designs/purple/kreatewebsites.production.css" rel="stylesheet"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4KCJ81QBCN"></script><script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4KCJ81QBCN');
+</script></head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-[#FDFBF7]/95 backdrop-blur-sm border-b border-[#E8E4D9] shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="text-2xl font-bold tracking-tight accent-text">CP.</div>
+                <div class="hidden md:flex space-x-8">
+                    <a class="text-gray-600 hover:text-[#C05640] transition-colors" href="#history">History</a>
+                    <a class="text-gray-600 hover:text-[#C05640] transition-colors" href="#architecture">Layout</a>
+                    <a class="text-gray-600 hover:text-[#C05640] transition-colors" href="#guide">Explore</a>
+                    <a class="text-gray-600 hover:text-[#C05640] transition-colors" href="#data">Insights</a>
+                </div>
+                <!-- Mobile Menu Button (Simplified for this demo) -->
+                <button class="md:hidden text-gray-600" id="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div class="hidden md:hidden bg-[#FDFBF7] border-b border-gray-200" id="mobile-menu">
+            <div class="flex flex-col p-4 space-y-2">
+                <a class="block py-2 text-gray-600" href="#history">History</a>
+                <a class="block py-2 text-gray-600" href="#architecture">Layout</a>
+                <a class="block py-2 text-gray-600" href="#guide">Explore</a>
+                <a class="block py-2 text-gray-600" href="#data">Insights</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-16 pb-20 lg:pt-24 lg:pb-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl text-gray-900">
+                <span class="block">Connaught Place</span>
+                <span class="block accent-text">The Colonial Heart of Delhi</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+                From the 1930s British Raj headquarters to the modern chaotic soul of the capital. Explore the white colonnades, heritage dining, and vibrant streets of Rajiv Chowk.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white accent-bg hover:bg-[#A04530]" href="#guide">
+                    Start Exploring
+                </a>
+                <a class="inline-flex items-center px-6 py-3 border border-[#E8E4D9] text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50" href="#architecture">
+                    See the Map
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: History Timeline -->
+    <section class="py-16 soft-bg" id="history">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-base accent-text font-semibold tracking-wide uppercase">Time Capsule</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900">A Century of Evolution</p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Designed by Robert Tor Russell and named after the Duke of Connaught, this architectural marvel took 4 years to build.
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-[#C05640]/30 hidden md:block"></div>
+                
+                <div class="space-y-8 relative">
+                    <!-- Timeline Item 1 -->
+                    <div class="md:flex justify-between items-center w-full">
+                        <div class="order-1 md:w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#C05640] shadow-xl w-8 h-8 rounded-full justify-center text-white font-bold mx-auto mb-2 md:mb-0">1</div>
+                        <div class="order-1 md:w-5/12 bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#C05640]">
+                            <h3 class="font-bold text-gray-800 text-lg">1929 - The Beginning</h3>
+                            <p class="text-sm text-gray-600 mt-1">Construction begins. The goal: create a commercial hub for Lutyens' Delhi to rival the finest in Europe.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="md:flex justify-between items-center w-full">
+                        <div class="order-1 md:w-5/12 bg-white rounded-lg shadow-md px-6 py-4 border-r-4 border-[#C05640] text-right md:text-right">
+                            <h3 class="font-bold text-gray-800 text-lg">1933 - Grand Opening</h3>
+                            <p class="text-sm text-gray-600 mt-1">Completed and named after Prince Arthur, 1st Duke of Connaught. It becomes the elite shopping destination for the Raj.</p>
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-[#C05640] shadow-xl w-8 h-8 rounded-full justify-center text-white font-bold mx-auto mb-2 md:mb-0">2</div>
+                        <div class="order-1 md:w-5/12"></div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="md:flex justify-between items-center w-full">
+                        <div class="order-1 md:w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-[#C05640] shadow-xl w-8 h-8 rounded-full justify-center text-white font-bold mx-auto mb-2 md:mb-0">3</div>
+                        <div class="order-1 md:w-5/12 bg-white rounded-lg shadow-md px-6 py-4 border-l-4 border-[#C05640]">
+                            <h3 class="font-bold text-gray-800 text-lg">1995-2005 - The Metro Era</h3>
+                            <p class="text-sm text-gray-600 mt-1">The arrival of Delhi Metro (Rajiv Chowk) transforms connectivity. Renamed formally to Rajiv Chowk, though 'CP' sticks.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="md:flex justify-between items-center w-full">
+                        <div class="order-1 md:w-5/12 bg-white rounded-lg shadow-md px-6 py-4 border-r-4 border-[#C05640] text-right md:text-right">
+                            <h3 class="font-bold text-gray-800 text-lg">Present Day</h3>
+                            <p class="text-sm text-gray-600 mt-1">A mix of high-street fashion, bustling cafes, and historical charm. The 9th most expensive office market in the world.</p>
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-[#C05640] shadow-xl w-8 h-8 rounded-full justify-center text-white font-bold mx-auto mb-2 md:mb-0">4</div>
+                        <div class="order-1 md:w-5/12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Architecture (Visualized) -->
+    <section class="py-16 bg-white" id="architecture">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Georgian Style, Radial Logic</h2>
+                    <p class="text-lg text-gray-600 mb-4">
+                        Modeled after the Royal Crescent in Bath, Connaught Place is structured as two concentric circles creating three distinct zones.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 h-6 w-6 rounded-full accent-bg flex items-center justify-center text-white text-sm font-bold">1</span>
+                            <span class="ml-3 text-gray-700"><strong>Inner Circle (Blocks A-F):</strong> The premium retail hub. Iconic columns and Palladian arches.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 h-6 w-6 rounded-full accent-bg flex items-center justify-center text-white text-sm font-bold">2</span>
+                            <span class="ml-3 text-gray-700"><strong>Middle Circle:</strong> The connecting road housing banks, offices, and smaller eateries.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 h-6 w-6 rounded-full accent-bg flex items-center justify-center text-white text-sm font-bold">3</span>
+                            <span class="ml-3 text-gray-700"><strong>Outer Circle (Blocks G-P):</strong> A mix of fine dining, newer cafes, and the famous K-block nightlife.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+                        <p class="text-sm text-gray-500"><strong>🏛️ Insight:</strong> There are 7 radial roads leading out from the center, dividing the blocks. This makes navigation tricky for newcomers always know your Block letter!</p>
+                    </div>
+                </div>
+
+                <!-- Plotly Visualization -->
+                <div class="bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+                    <h3 class="text-center text-sm font-semibold text-gray-500 mb-2">Interactive Blueprint: Click to Explore Zones</h3>
+                    <!-- Chart Container for Plotly -->
+                    <div class="chart-container h-[400px] w-full max-w-[500px]" id="archChart"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: The Curator's Guide (Interactive Utility) -->
+    <section class="py-16 soft-bg" id="guide">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-gray-900">The CP Guide</h2>
+                <p class="mt-2 text-gray-600">Filter the chaos. Find exactly what you're looking for.</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8" id="filter-container">
+                <button class="tab-btn active px-4 py-2 rounded-full border border-[#C05640] text-[#C05640] hover:bg-[#C05640] hover:text-white transition-all text-sm font-medium" data-filter="all">All</button>
+                <button class="tab-btn px-4 py-2 rounded-full border border-gray-300 text-gray-600 hover:border-[#C05640] hover:text-[#C05640] transition-all text-sm font-medium" data-filter="heritage">Heritage &amp; Vintage</button>
+                <button class="tab-btn px-4 py-2 rounded-full border border-gray-300 text-gray-600 hover:border-[#C05640] hover:text-[#C05640] transition-all text-sm font-medium" data-filter="eat">Eat &amp; Drink</button>
+                <button class="tab-btn px-4 py-2 rounded-full border border-gray-300 text-gray-600 hover:border-[#C05640] hover:text-[#C05640] transition-all text-sm font-medium" data-filter="shop">Shop</button>
+                <button class="tab-btn px-4 py-2 rounded-full border border-gray-300 text-gray-600 hover:border-[#C05640] hover:text-[#C05640] transition-all text-sm font-medium" data-filter="experience">Experience</button>
+            </div>
+
+            <!-- Grid Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="guide-grid">
+                <!-- Javascript will populate this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Data Insights (Chart.js) -->
+    <section class="py-16 bg-white" id="data">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900">Connaught Place by the Numbers</h2>
+                <p class="mt-2 text-gray-600">Understanding the commercial pulse of Delhi's center.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Chart 1: Commercial Mix -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Establishment Distribution</h3>
+                    <p class="text-xs text-gray-500 mb-4">A rough breakdown of ground &amp; 1st floor usage.</p>
+                    <div class="chart-container h-64 max-h-64 max-w-md mx-auto">
+                        <canvas id="mixChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Cost Analysis -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Dining: Cost for Two (INR)</h3>
+                    <p class="text-xs text-gray-500 mb-4">Comparing Heritage Classics vs. Modern Bars.</p>
+                    <div class="chart-container h-64 max-h-64 max-w-full">
+                        <canvas id="costChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 3: Footfall Trends -->
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm lg:col-span-2">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Visitor Activity: Weekday vs. Weekend</h3>
+                    <p class="text-xs text-gray-500 mb-4">Estimated footfall intensity (0-100 scale).</p>
+                    <div class="chart-container h-72 max-h-80 max-w-4xl mx-auto">
+                        <canvas id="footfallChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Essentials -->
+    <footer class="bg-gray-800 text-gray-300">
+<div class="container mx-auto px-6 py-12 lg:px-8">
+<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Connaught Place</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/">Home</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/photos-blog/">Photos and Blog</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/red-fort/">Red Fort</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Delhi Tour</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/delhi/">Old Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/red-fort/">Red Fort Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/kinari-bazaar/">Kinari Bazaar</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Folders</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/chandni-chowk/">Chandni Chowk</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/delhi/">Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/festivals/">Festivals</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/india/">India</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/New-Delhi/">New Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/photo-gallery/">Photo Gallery</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/red-fort/">Red Fort</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-lg font-semibold text-white mb-4">Pages</h5>
+<ul class="space-y-2">
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-a.html">Block A</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-b.html">Block B</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-c.html">Block C</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-d.html">Block D</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-e.html">Block E</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-f.html">Block F</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-g.html">Block G</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-h.html">Block H</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-k.html">Block K</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-l.html">Block L</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-m.html">Block M</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-n.html">Block N</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/block-p.html">Block P</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/cp-explorer.html">Cp Explorer</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/cp.html">Cp</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/Diwali-market-in-delhi.html">Diwali Market In Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/hot-spots.html">Hot Spots</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/hotel-comfort-inn-the-president-new-delhi.html">Hotel Comfort Inn The President New Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/hotel-hans-plaza-new-delhi.html">Hotel Hans Plaza New Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/hotel-palace-heights-connaught-place-new-delhi.html">Hotel Palace Heights Connaught Place New Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/hotels.html">Hotels</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/humayun-s-tomb.html">Humayun S Tomb</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/india-gate.html">India Gate</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/isa-khan-s-tomb.html">Isa Khan S Tomb</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/jantar-mantar.html">Jantar Mantar</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/le_meridien.html">Le Meridien</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/metro.html">Metro</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/metropolitan-hotel.html">Metropolitan Hotel</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/old-delhi.html">Old Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/old-fort.html">Old Fort</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/overview.html">Overview</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/park-hotel.html">Park Hotel</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/privacypolicy.html">Privacypolicy</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/rajghat.html">Rajghat</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/ramada-plaza.html">Ramada Plaza</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/rashtrapati-bhawan.html">Rashtrapati Bhawan</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/Ravan-effigy-burn-in-delhi.html">Ravan Effigy Burn In Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/redfort.html">Redfort</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/restaurants.html">Restaurants</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/safdarjung-tomb.html">Safdarjung Tomb</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/shangri-la-hotel-new-delhi.html">Shangri La Hotel New Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/shopping.html">Shopping</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/showrooms.html">Showrooms</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/sitemap.html">Sitemap</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/the-imperial.html">The Imperial</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/the-lalit-delhi.html">The Lalit Delhi</a></li>
+<li><a class="hover:text-white hover:underline transition-colors duration-200" href="https://www.connaught-place.com/the-oberoi.html">The Oberoi</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-8 text-center text-sm text-gray-400">
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center justify-between sm:flex-row">
+<p class="text-sm text-gray-400">© 2026 connaught-place. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // --- DATA STORE ---
+        const placeData = [
+            {
+                id: 1,
+                name: "United Coffee House",
+                category: ["eat", "heritage"],
+                desc: "Established in 1942. Famous for its old-world Victorian decor and signature Keema Samosas.",
+                icon: "☕",
+                location: "Inner Circle, Block E",
+                price: "₹₹₹"
+            },
+            {
+                id: 2,
+                name: "Wenger's Deli",
+                category: ["eat", "heritage"],
+                desc: "The oldest bakery in CP (1926). Known for mutton patties and cream buns. A standing-only legend.",
+                icon: "🥐",
+                location: "Inner Circle, Block A",
+                price: "₹"
+            },
+            {
+                id: 3,
+                name: "Janpath Market",
+                category: ["shop", "experience"],
+                desc: "Famous street market adjacent to CP. Best for ethnic wear, curios, and bargaining.",
+                icon: "🛍️",
+                location: "Janpath Road",
+                price: "₹"
+            },
+            {
+                id: 4,
+                name: "Central Park",
+                category: ["experience"],
+                desc: "The green heart of the circle. Hosts a massive Indian flag. Great for winter afternoons.",
+                icon: "🌳",
+                location: "Center",
+                price: "Free"
+            },
+            {
+                id: 5,
+                name: "Palika Bazaar",
+                category: ["shop", "experience"],
+                desc: "Underground air-conditioned market. Famous for electronics and clothes. Beware of duplicates!",
+                icon: "🏬",
+                location: "Underground (Gate 6)",
+                price: "₹"
+            },
+            {
+                id: 6,
+                name: "Museum of Illusions",
+                category: ["experience"],
+                desc: "A modern attraction with mind-bending optical illusions. Great for photos.",
+                icon: "📸",
+                location: "Inner Circle, Block A",
+                price: "₹₹₹"
+            },
+            {
+                id: 7,
+                name: "Keventers (Original)",
+                category: ["eat", "heritage"],
+                desc: "The original milkshake spot. Grab a bottle and stand outside enjoying the architecture.",
+                icon: "milk", // Using text fallback or emoji
+                location: "Block H",
+                price: "₹₹"
+            },
+            {
+                id: 8,
+                name: "FabIndia / Khadi Gram Udyog",
+                category: ["shop", "heritage"],
+                desc: "For authentic Indian handloom and organic products. The Khadi Bhawan is massive.",
+                icon: "👕",
+                location: "Outer Circle",
+                price: "₹₹"
+            },
+             {
+                id: 9,
+                name: "Modern Rooftop Bars",
+                category: ["eat", "experience"],
+                desc: "CP's outer circle is famous for rooftops like Tamasha or Lord of the Drinks.",
+                icon: "🍹",
+                location: "Outer Circle",
+                price: "₹₹₹₹"
+            }
+        ];
+
+        // --- DOM ELEMENTS ---
+        const guideGrid = document.getElementById('guide-grid');
+        const filterBtns = document.querySelectorAll('.tab-btn');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // --- FUNCTIONS ---
+
+        // Render Cards
+        function renderCards(filter) {
+            guideGrid.innerHTML = '';
+            
+            const filteredData = filter === 'all' 
+                ? placeData 
+                : placeData.filter(item => item.category.includes(filter));
+
+            filteredData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'place-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 flex flex-col h-full';
+                card.innerHTML = `
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start">
+                            <div class="bg-[#E8E4D9] w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+                                ${item.icon === 'milk' ? '🥛' : item.icon}
+                            </div>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                                ${item.price}
+                            </span>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">${item.name}</h3>
+                        <p class="mt-1 text-sm text-gray-500 flex-grow">${item.desc}</p>
+                        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center text-xs text-gray-400">
+                            <span class="mr-1">📍</span> ${item.location}
+                        </div>
+                    </div>
+                `;
+                guideGrid.appendChild(card);
+            });
+        }
+
+        // --- INITIALIZATION & EVENT LISTENERS ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Init Guide
+            renderCards('all');
+
+            // 2. Filter Logic
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all
+                    filterBtns.forEach(b => b.classList.remove('active', 'bg-[#C05640]', 'text-white', 'border-[#C05640]'));
+                    filterBtns.forEach(b => b.classList.add('text-gray-600', 'border-gray-300'));
+                    
+                    // Add active class to clicked
+                    btn.classList.add('active');
+                    btn.classList.remove('text-gray-600', 'border-gray-300');
+                    
+                    renderCards(btn.dataset.filter);
+                });
+            });
+
+            // 3. Mobile Menu
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // 4. CHART: Plotly Sunburst (Architecture)
+            const sunburstData = [{
+                type: "sunburst",
+                labels: ["CP", "Inner Circle", "Middle Circle", "Outer Circle", "Block A", "Block B", "Block C", "Banks", "Offices", "Block G", "Block H", "Block K"],
+                parents: ["", "CP", "CP", "CP", "Inner Circle", "Inner Circle", "Inner Circle", "Middle Circle", "Middle Circle", "Outer Circle", "Outer Circle", "Outer Circle"],
+                values:  [100, 35, 20, 45, 10, 10, 10, 10, 10, 15, 15, 15],
+                outsidetextfont: {size: 14, color: "#377eb8"},
+                leaf: {opacity: 0.4},
+                marker: {line: {width: 2}, colors: ["#FDFBF7", "#C05640", "#E8E4D9", "#2D3748", "#D97D6A", "#D97D6A", "#D97D6A", "#F0EBE0", "#F0EBE0", "#5A6A85", "#5A6A85", "#5A6A85"]},
+                hovertemplate: '<b>%{label}</b><br>Zone Type: %{parent}<extra></extra>'
+            }];
+
+            const sunburstLayout = {
+                margin: {l: 0, r: 0, b: 0, t: 0},
+                paper_bgcolor: "rgba(0,0,0,0)",
+                plot_bgcolor: "rgba(0,0,0,0)",
+                font: { family: 'Segoe UI' }
+            };
+
+            Plotly.newPlot('archChart', sunburstData, sunburstLayout, {displayModeBar: false, responsive: true});
+
+            // 5. CHART JS: Commercial Mix (Doughnut)
+            const ctxMix = document.getElementById('mixChart').getContext('2d');
+            new Chart(ctxMix, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Retail/Shopping', 'Food & Beverage', 'Corporate/Banks', 'Entertainment'],
+                    datasets: [{
+                        data: [45, 30, 20, 5],
+                        backgroundColor: ['#C05640', '#E8E4D9', '#2D3748', '#D4C5A8'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right' }
+                    }
+                }
+            });
+
+            // 6. CHART JS: Cost Analysis (Bar)
+            const ctxCost = document.getElementById('costChart').getContext('2d');
+            new Chart(ctxCost, {
+                type: 'bar',
+                data: {
+                    labels: ['Street Food', 'Fast Food', 'Heritage Cafe', 'Casual Dining', 'Fine Dining/Bar'],
+                    datasets: [{
+                        label: 'Avg Cost for Two (INR)',
+                        data: [300, 800, 1500, 2000, 4500],
+                        backgroundColor: '#C05640',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // 7. CHART JS: Footfall (Line)
+            const ctxFootfall = document.getElementById('footfallChart').getContext('2d');
+            new Chart(ctxFootfall, {
+                type: 'line',
+                data: {
+                    labels: ['10 AM', '12 PM', '2 PM', '4 PM', '6 PM', '8 PM', '10 PM'],
+                    datasets: [
+                        {
+                            label: 'Weekend',
+                            data: [20, 60, 85, 90, 95, 100, 80],
+                            borderColor: '#C05640',
+                            tension: 0.4,
+                            fill: true,
+                            backgroundColor: 'rgba(192, 86, 64, 0.1)'
+                        },
+                        {
+                            label: 'Weekday',
+                            data: [30, 50, 60, 55, 80, 70, 40],
+                            borderColor: '#2D3748',
+                            tension: 0.4,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
+            });
+        });
+    </script>
+
+</body></html>
